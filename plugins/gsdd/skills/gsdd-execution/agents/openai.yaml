@@ -1,0 +1,7 @@
+interface:
+  display_name: "GSDD Execution"
+  short_description: "Implement plans with TDD and review"
+  default_prompt: "Use $gsdd-execution to implement this approved plan with failing tests first and strong review gates."
+
+policy:
+  allow_implicit_invocation: true

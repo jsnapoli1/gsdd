@@ -1,0 +1,19 @@
+{
+  "name": "gsdd",
+  "description": "Gold Standard Driven Development for Claude Code: story review, codebase-aware planning, test-first execution, and adversarial review gates.",
+  "version": "0.1.0",
+  "author": {
+    "name": "jsnapoli1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "codex",
+    "plugin",
+    "gsdd",
+    "workflow",
+    "tdd",
+    "planning",
+    "review"
+  ]
+}

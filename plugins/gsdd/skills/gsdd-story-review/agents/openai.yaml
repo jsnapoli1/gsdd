@@ -1,0 +1,7 @@
+interface:
+  display_name: "GSDD Story Review"
+  short_description: "Turn rough ideas into approved specs"
+  default_prompt: "Use $gsdd-story-review to turn this feature idea into an approved engineering spec before implementation."
+
+policy:
+  allow_implicit_invocation: true

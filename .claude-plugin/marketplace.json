@@ -1,0 +1,31 @@
+{
+  "name": "gsdd-marketplace",
+  "owner": {
+    "name": "jsnapoli1"
+  },
+  "metadata": {
+    "description": "Marketplace for the Gold Standard Driven Development Claude Code plugin.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "gsdd",
+      "source": "./plugins/gsdd",
+      "description": "Gold Standard Driven Development: story review, codebase-aware planning, test-first implementation, and adversarial review gates.",
+      "version": "0.1.0",
+      "author": {
+        "name": "jsnapoli1"
+      },
+      "license": "MIT",
+      "category": "productivity",
+      "tags": [
+        "workflow",
+        "planning",
+        "tdd",
+        "codex",
+        "review",
+        "specs"
+      ]
+    }
+  ]
+}
