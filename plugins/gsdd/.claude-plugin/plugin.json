@@ -1,7 +1,7 @@
 {
   "name": "gsdd",
   "description": "Gold Standard Driven Development for Claude Code: story review, codebase-aware planning, test-first execution, and adversarial review gates.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "jsnapoli1"
   },
