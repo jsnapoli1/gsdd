@@ -22,7 +22,13 @@ Routing:
 
 Special handling:
 - `--skip-review` only skips the human pause after the implementation plan is written and adversarially reviewed. It does not skip story review, self-review, adversarial review, testing, or release-readiness checks.
-- If Codex tooling is unavailable, perform the closest internal fallback and say so.
+- If Codex commands are available in the harness, actually invoke `/codex:adversarial-review` for critique steps and `/codex:rescue` for bounded implementation support instead of only mentioning Codex in prose.
+- If Codex tooling is unavailable, perform the closest internal fallback and say so explicitly.
+
+Example language:
+- "Have Codex Review this spec and plan" means invoke `/codex:adversarial-review`.
+- "Send a task to codex to draft the failing tests" means invoke `/codex:rescue`.
+- "Have Codex Review the implementation and docs before handoff" means invoke `/codex:adversarial-review`.
 
 Artifacts:
 - Save specs to `docs/claude-specs/YYYY-MM-DD-{feature}.md`
@@ -35,5 +41,6 @@ Finish by reporting:
 - tests run
 - manual walkthrough status
 - documentation updated
+- Codex usage or explicit fallback
 - remaining risks
 - final state: ready for staging review, ready for merge, or blocked

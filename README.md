@@ -30,7 +30,9 @@ The `gsdd` plugin helps Claude:
 - explore the codebase before planning
 - write implementation plans with explicit reuse decisions
 - enforce test-first execution
-- use Codex for adversarial review when available
+- invoke `/codex:adversarial-review` for adversarial review
+- invoke `/codex:rescue` for bounded implementation support
+- explicitly record when Codex was used and when a fallback was required
 - stop at "ready for staging review" unless deployment has happened
 
 ## Local Validation

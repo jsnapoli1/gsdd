@@ -19,9 +19,10 @@ Read `references/test-matrix.md` before finalizing the plan.
 2. Explore the codebase for reusable UI, domain models, endpoints, jobs, permissions, notifications, file handling, revision logic, and tests.
 3. Prefer extending existing capabilities over adding one-off screens or endpoints.
 4. Write the implementation plan to `docs/claude-plans/YYYY-MM-DD-{feature}.md`.
-5. Ask Codex for adversarial review of the spec and plan before presenting the final plan to the human partner.
-6. If Codex review is unavailable, perform an internal adversarial review and explicitly say that a fallback was used.
-7. Unless `--skip-review` is present, ask the human partner to approve the written plan before execution.
+5. If the harness exposes Codex commands, invoke `/codex:adversarial-review` for adversarial review of the spec and plan before presenting the final plan to the human partner.
+6. Record the Codex review outcome in the plan or handoff, including what Codex reviewed, the key findings, and what changed because of that review.
+7. If Codex review is unavailable, perform an internal adversarial review and explicitly say that a fallback was used because Codex commands were unavailable in this harness.
+8. Unless `--skip-review` is present, ask the human partner to approve the written plan before execution.
 
 ## Plan Requirements
 
@@ -57,6 +58,13 @@ Document what you found and why you are reusing or not reusing it.
 - Every slice must state how it will be tested.
 - Call out blockers and unresolved questions instead of guessing.
 - Keep the plan specific enough that a bounded implementation agent can execute it without inventing behavior.
+
+## Codex Review Gate
+
+- Do not merely say that Codex should be used. If Codex commands are available, actually invoke `/codex:adversarial-review`.
+- Do not present the plan as adversarially reviewed until the Codex review has happened.
+- Do not hide a skipped Codex step behind generic wording like "reviewed" or "validated."
+- If Codex cannot be invoked, say that explicitly and name the fallback as an internal adversarial review.
 
 ## Stop Conditions
 

@@ -7,3 +7,5 @@ Use the `gsdd-writing-plans` skill.
 Do not write production code yet.
 
 Write the plan to `docs/claude-plans/YYYY-MM-DD-{feature}.md`.
+
+If Codex commands are available in the harness, "Have Codex Review this plan" means invoke `/codex:adversarial-review` before presenting the final plan.
