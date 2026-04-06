@@ -1,0 +1,7 @@
+interface:
+  display_name: "Internal GSDD Execution"
+  short_description: "Internal execution workflow for gsdd-execute"
+  default_prompt: "Use $gsdd-execution-internal to implement this approved plan with failing tests first and strong review gates. Send each bounded implementation slice to /codex:rescue for the code-writing work, wait for each Codex response before continuing, do not ask to run Codex in the background, and automatically continue the workflow loop until /codex:adversarial-review reports no blocking gaps. After implementing anything found in adversarial review, trigger a fresh /codex:adversarial-review to confirm no new issues were identified. Claude should coordinate, verify, and re-scope slices; Codex should write the bounded code."
+
+policy:
+  allow_implicit_invocation: false

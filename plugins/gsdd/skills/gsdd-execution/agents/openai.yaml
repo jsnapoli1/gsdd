@@ -1,7 +1,7 @@
 interface:
-  display_name: "GSDD Execution"
-  short_description: "Implement plans with TDD and review"
-  default_prompt: "Use $gsdd-execution to implement this approved plan with failing tests first and strong review gates. If Codex commands are available in the harness, invoke /codex:rescue for bounded test-first implementation support and /codex:adversarial-review for critique, then report the Codex outcome or an explicit fallback."
+  display_name: "Deprecated: Use gsdd-execute"
+  short_description: "Redirect humans to the gsdd-execute command"
+  default_prompt: "If a human invokes $gsdd-execution directly, do not run the implementation workflow. Tell them to use the gsdd-execute command instead. Explain that gsdd-execute is the public entrypoint and gsdd-execution is no longer meant for direct human invocation."
 
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false

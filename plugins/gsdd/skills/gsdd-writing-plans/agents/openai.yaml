@@ -1,7 +1,7 @@
 interface:
   display_name: "GSDD Writing Plans"
   short_description: "Write codebase-aware implementation plans"
-  default_prompt: "Use $gsdd-writing-plans to turn this approved spec into a codebase-aware implementation plan. If Codex commands are available in the harness, invoke /codex:adversarial-review before presenting the plan, and report the Codex review result or an explicit fallback."
+  default_prompt: "Use $gsdd-writing-plans to turn this approved spec into a codebase-aware implementation plan. Invoke /codex:adversarial-review before presenting the plan, and report the Codex review result."
 
 policy:
   allow_implicit_invocation: true

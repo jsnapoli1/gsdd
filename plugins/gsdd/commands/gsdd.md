@@ -2,45 +2,28 @@
 description: "Run the full Gold Standard Driven Development workflow: story review, planning, test-first implementation, Codex review, and staging-ready handoff"
 ---
 
-You are running the Gold Standard Driven Development workflow.
+Run GSDD in one-shot mode.
 
-Goal:
-Turn the user's request into an approved spec, an approved implementation plan, failing tests, a working implementation, reviewed documentation, and a branch or PR that is ready for staging review.
+Treat `/gsdd:gsdd` as a full end-to-end orchestrator:
+- if the request is still a rough story, produce the spec
+- if a plan is missing, write the plan
+- if code has not been implemented, execute the plan
+- continue looping until the work reaches staging-ready handoff
 
-Hard rules:
-- Do not write production code until a written spec exists and is approved.
-- Do not write production code until a written implementation plan exists and is approved, unless `--skip-review` is explicitly present.
-- Reuse existing screens, models, endpoints, jobs, permissions, notifications, storage, and tests before inventing new ones.
-- Treat examples as examples. If the user says a story is illustrative rather than canonical, extract the real business rules before finalizing the spec.
-- Evidence over claims. Every completion claim must be backed by tests, direct verification, or saved artifacts.
-- Never say "ready for production" unless the feature has actually been deployed. Default to "ready for staging review."
+Do not stop after spec review or plan review just to ask whether Claude should continue. For this command, approval to continue is implicit in the command invocation unless the user explicitly asks to pause.
 
-Routing:
-- If the user gave a rough idea, a production narrative, or an incomplete feature description, use `gsdd-story-review`.
-- If there is an approved spec but no approved plan, use `gsdd-writing-plans`.
-- If there is an approved plan, use `gsdd-execution`.
+When code-writing is required, continue from story review to planning to `gsdd-execute` automatically.
 
-Special handling:
-- `--skip-review` only skips the human pause after the implementation plan is written and adversarially reviewed. It does not skip story review, self-review, adversarial review, testing, or release-readiness checks.
-- If Codex commands are available in the harness, actually invoke `/codex:adversarial-review` for critique steps and `/codex:rescue` for bounded implementation support instead of only mentioning Codex in prose.
-- If Codex tooling is unavailable, perform the closest internal fallback and say so explicitly.
+Hard gates:
+- Do not write production code before an approved spec exists.
+- Do not write production code before an approved implementation plan exists unless `--skip-review` is explicitly present.
+- Do not claim adversarial review happened unless `/codex:adversarial-review` was actually invoked.
+- Do not let Claude declare the work finished until the final adversarial review step has happened on the implementation, documentation, and release-readiness claim.
+- Do not stop the one-shot workflow while there is remaining code-writing, verification, or adversarial-review work to do.
 
-Example language:
-- "Have Codex Review this spec and plan" means invoke `/codex:adversarial-review`.
-- "Send a task to codex to draft the failing tests" means invoke `/codex:rescue`.
-- "Have Codex Review the implementation and docs before handoff" means invoke `/codex:adversarial-review`.
-
-Artifacts:
-- Save specs to `docs/claude-specs/YYYY-MM-DD-{feature}.md`
-- Save plans to `docs/claude-plans/YYYY-MM-DD-{feature}.md`
-- Use `docs/templates/spec-template.md`, `docs/templates/plan-template.md`, and `docs/templates/release-readiness-template.md` as defaults
-
-Finish by reporting:
-- spec path
-- plan path
-- tests run
-- manual walkthrough status
-- documentation updated
-- Codex usage or explicit fallback
-- remaining risks
-- final state: ready for staging review, ready for merge, or blocked
+Artifacts default to:
+- `docs/claude-specs/YYYY-MM-DD-{feature}.md`
+- `docs/claude-plans/YYYY-MM-DD-{feature}.md`
+- `docs/templates/spec-template.md`
+- `docs/templates/plan-template.md`
+- `docs/templates/release-readiness-template.md`

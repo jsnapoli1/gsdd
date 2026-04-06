@@ -1,5 +1,7 @@
 # {Feature Name} Spec
 
+> **Workflow gate:** this spec must be approved and adversarially reviewed before planning or production implementation begins.
+
 ## Problem Statement
 
 ## Business Goal
@@ -35,3 +37,11 @@
 ## Rollout Notes
 
 ## Open Questions
+
+## Adversarial Review Notes
+
+**Review status:**
+
+**Codex findings:**
+
+**Changes made because of review:**

@@ -22,7 +22,19 @@ Read `references/spec-checklist.md` before finalizing the spec.
 5. Present the spec in short sections and confirm each section with the human partner.
 6. Save the approved spec to `docs/claude-specs/YYYY-MM-DD-{feature}.md`.
 7. Self-review the spec for ambiguity, contradictions, missing permissions, unclear statuses, and open questions.
-8. Ask the human partner to approve the written spec before moving to planning.
+8. Invoke `/codex:adversarial-review` on the written spec before presenting it as ready for approval.
+9. Wait for `/codex:adversarial-review` to finish before continuing. Do not ask to run Codex in the background and do not continue while the review is still running.
+10. If Codex finds gaps, fix the spec, then rerun `/codex:adversarial-review`. Repeat until the spec is ready for approval.
+11. Record what Codex reviewed, the key findings, and the changes made because of that review.
+12. Ask the human partner to approve the written spec before moving to planning.
+
+## One-Shot Mode
+
+When this skill is being used by `/gsdd:gsdd` or `/gsdd:gsdd-execute` as part of a one-shot workflow:
+
+- treat continuation into planning as already authorized by the command invocation
+- do not stop just to ask whether Claude should keep going
+- after the spec passes `/codex:adversarial-review`, save it and continue directly into planning unless the user explicitly asked to pause
 
 ## Rules For Questions
 
@@ -58,4 +70,4 @@ If the user gives an example story:
 
 ## Definition Of Done
 
-The spec is detailed enough that another agent can write failing tests without inventing business rules.
+The spec is detailed enough that another agent can write failing tests without inventing business rules, and the spec has passed adversarial review via `/codex:adversarial-review`.

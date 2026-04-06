@@ -25,18 +25,14 @@ Do not weaken this order:
 
 ## Codex Expectations
 
-When the harness supports Codex commands, use them for adversarial review and bounded implementation support.
+Use Codex commands for adversarial review and bounded implementation support.
 
 Preferred command mapping:
 - "Have Codex Review" means invoke `/codex:adversarial-review`.
 - "Send a task to codex" means invoke `/codex:rescue`.
 - Use `/codex:adversarial-review` for critique of specs, plans, implementations, docs, and release-readiness claims.
-- Use `/codex:rescue` for bounded implementation help such as drafting failing tests, handling a narrow slice, or unblocking a specific task.
-
-When Codex commands are unavailable:
-- say so explicitly
-- perform the closest internal fallback
-- do not claim that Codex reviewed the work
+- Use `/codex:rescue` to do the bounded implementation work itself: drafting failing tests, handling a narrow slice, or unblocking a specific task.
+- Claude should coordinate, scope, verify, and integrate. Codex should write the bounded code slice.
 
 ## Done Means Staging-Ready
 
